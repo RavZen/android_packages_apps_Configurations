@@ -4,8 +4,8 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- The Evolver -->
-    <string name="evolver_dashboard_title">The Evolver</string>
+    <!-- Configuration -->
+    <string name="evolver_dashboard_title">Configuration</string>
     <!-- Categories -->
     <string name="aosp_setting_title">システム設定</string>
     <string name="animation_title">アニメーション</string>

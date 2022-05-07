@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- The Evolver -->
+    <!-- Configuration -->
     <string name="evolver_dashboard_title">Evolution X 自定義</string>
     <!-- Categories -->
     <string name="aosp_setting_title">系統設置</string>

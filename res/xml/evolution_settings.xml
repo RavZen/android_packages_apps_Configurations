@@ -9,60 +9,52 @@
     android:title="@string/evolver_dashboard_title">
 
     <!-- Themes -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="themes_category"
         android:title="@string/themes_title"
-        android:fragment="com.evolution.settings.fragments.Themes"
-        android:icon="@drawable/ic_settings_themes" />
+        android:fragment="com.evolution.settings.fragments.Themes"/>
 
     <!-- Status bar -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="statusbar_category"
         android:title="@string/status_bar_title"
-        android:fragment="com.evolution.settings.fragments.StatusBar"
-        android:icon="@drawable/ic_settings_statusbar" />
+        android:fragment="com.evolution.settings.fragments.StatusBar"/>
 
     <!-- Notifications -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="notifications_category"
         android:title="@string/notifications_title"
-        android:fragment="com.evolution.settings.fragments.Notifications"
-        android:icon="@drawable/ic_settings_notifications" />
+        android:fragment="com.evolution.settings.fragments.Notifications"/>
 
     <!-- Quick Settings panel -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="quicksettings_category"
         android:title="@string/quicksettings_title"
-        android:fragment="com.evolution.settings.fragments.QuickSettings"
-        android:icon="@drawable/ic_settings_quicksettings" />
+        android:fragment="com.evolution.settings.fragments.QuickSettings"/>
 
     <!-- Power Menu -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="powermenu_category"
         android:title="@string/powermenu_title"
-        android:fragment="com.evolution.settings.fragments.PowerMenu"
-        android:icon="@drawable/ic_settings_powermenu" />
+        android:fragment="com.evolution.settings.fragments.PowerMenu"/>
 
     <!-- Gestures -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="gestures_category"
         android:title="@string/gestures_title"
-        android:fragment="com.evolution.settings.fragments.Gestures"
-        android:icon="@drawable/ic_settings_gestures" />
+        android:fragment="com.evolution.settings.fragments.Gestures"/>
 
     <!-- Lock Screen -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="lockscreen_category"
         android:title="@string/lockscreen_title"
-        android:fragment="com.evolution.settings.fragments.LockScreen"
-        android:icon="@drawable/ic_settings_lockscreen" />
+        android:fragment="com.evolution.settings.fragments.LockScreen"/>
 
     <!-- Buttons -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="buttons_category"
         android:title="@string/button_pref_title"
-        android:fragment="com.evolution.settings.fragments.Buttons"
-        android:icon="@drawable/ic_settings_buttons" />
+        android:fragment="com.evolution.settings.fragments.Buttons"/>
 
     <!-- Animations -->
     <!-- Preference
@@ -72,17 +64,9 @@
         android:icon="@drawable/ic_settings_animations" />-->
 
     <!-- Misc -->
-    <Preference
+    <com.evolution.settings.preference.CardviewPreference
         android:key="misc_category"
         android:title="@string/misc_title"
-        android:fragment="com.evolution.settings.fragments.Miscellaneous"
-        android:icon="@drawable/ic_settings_miscellaneous" />
-
-    <!-- About Evolution X -->
-    <Preference
-        android:key="about_evolution"
-        android:title="@string/evolution_about_title"
-        android:fragment="com.evolution.settings.AboutEvolutionX"
-        android:icon="@drawable/ic_settings_evolution_about" />
+        android:fragment="com.evolution.settings.fragments.Miscellaneous"/>
 
 </PreferenceScreen>

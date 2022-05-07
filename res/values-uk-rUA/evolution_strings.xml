@@ -4,7 +4,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- The Evolver -->
+    <!-- Configuration -->
     <string name="evolver_dashboard_title">Кастомізація Evolver</string>
     <!-- Categories -->
     <string name="aosp_setting_title">Налаштування AOSP</string>
