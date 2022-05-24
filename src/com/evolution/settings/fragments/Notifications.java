@@ -119,8 +119,8 @@ public class Notifications extends SettingsPreferenceFragment implements
             mFlashOnCall.setOnPreferenceChangeListener(this);
         }
 
-        boolean hasLED = res.getBoolean(
-                com.android.internal.R.bool.config_hasNotificationLed);
+        boolean hasLED = false;
+        
         if (hasLED) {
             mNotLights = (Preference) findPreference(NOTIFICATION_LIGHTS_PREF);
             boolean mNotLightsSupported = res.getBoolean(
