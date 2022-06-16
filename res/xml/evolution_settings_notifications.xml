@@ -51,6 +51,12 @@
         android:key="notifications_general_category"
         android:title="@string/general_title">
 
+    <com.evolution.settings.preference.SystemSettingSwitchPreference
+        android:key="statusbar_icons_style"
+        android:title="@string/statusbar_icons_style"
+        android:summary="@string/statusbar_icons_style_summary"
+        android:defaultValue="true" />
+
         <com.evolution.settings.preference.SystemSettingSwitchPreference
             android:key="notification_sound_vib_screen_on"
             android:title="@string/notification_sound_vib_screen_on_title"

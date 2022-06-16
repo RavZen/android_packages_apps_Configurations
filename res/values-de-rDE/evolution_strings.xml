@@ -1101,4 +1101,7 @@ ein Entsperren des Gerätes</string>
     <!-- Disable music track title in QS tile -->
     <string name="qs_music_tile_track_optional_title">Titelname auf Musik-Kachel</string>
     <string name="qs_music_tile_track_optional_summary">Zeigt den Titelnamen in der Kachelbezeichnung</string>
+        <!-- Colored icons -->
+    <string name="statusbar_icons_style">Farbige Statusleistensymbole</string>
+    <string name="statusbar_icons_style_summary">Wählen Sie den Stil Ihrer Statusleistensymbole (erfordert einen Neustart der SystemUI)</string>
 </resources>
