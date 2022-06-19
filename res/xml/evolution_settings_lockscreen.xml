@@ -106,4 +106,30 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="lockscreen_shortcuts"
+        android:title="@string/lockscreen_shortcuts_category">
+
+            <com.evolution.settings.preference.SystemSettingSwitchPreference
+                android:key="lockscreen_show_voice_shortcut"
+                android:title="@string/lockscreen_show_voice_shortcut"
+                android:summary="@string/lockscreen_show_voice_shortcut_summary"
+                android:defaultValue="false" />
+
+            <com.evolution.settings.preference.SystemSettingSwitchPreference
+                    android:key="lockscreen_show_left_phone_shortcut"
+                    android:title="@string/lockscreen_show_phone_shortcut"
+                    android:summary="@string/lockscreen_show_phone_shortcut_summary"
+                    android:dependency="lockscreen_show_voice_shortcut"
+                    android:defaultValue="false" />
+
+            <com.evolution.settings.preference.SystemSettingSwitchPreference
+                    android:key="lockscreen_show_camera_shortcut"
+                    android:title="@string/lockscreen_show_camera_shortcut"
+                    android:summary="@string/lockscreen_show_camera_shortcut_summary"
+                    android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+
 </PreferenceScreen>
