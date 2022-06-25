@@ -45,6 +45,13 @@ import com.android.settingslib.search.SearchIndexable;
 
 import com.evolution.settings.preference.SystemSettingListPreference;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import static android.os.UserHandle.USER_SYSTEM;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import static android.os.UserHandle.USER_CURRENT;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +62,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
     private static final String FINGERPRINT_CATEGORY = "lockscreen_fingerprint_category";
     private static final String UDFPS_CATEGORY = "udfps_category";
+    private static final String CUSTOM_CLOCK_FACE = Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE;
+    private static final String DEFAULT_CLOCK = "com.android.keyguard.clock.DefaultClockController";
 
     private FingerprintManager mFingerprintManager;
     private PreferenceCategory mFingerprintCategory;
@@ -67,6 +76,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
     static final int MODE_MIXED_SUNRISE = 4;
 
     Preference mAODPref;
+
+    private Context mContext;
+    private ListPreference mLockClockStyles;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -90,6 +102,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
             prefSet.removePreference(mUdfpsCategory);
         }
+
+        mLockClockStyles = (ListPreference) findPreference(CUSTOM_CLOCK_FACE);
+        String mLockClockStylesValue = getLockScreenCustomClockFace();
+        mLockClockStyles.setValue(mLockClockStylesValue);
+        mLockClockStyles.setSummary(mLockClockStyles.getEntry());
+        mLockClockStyles.setOnPreferenceChangeListener(this);
 
         mAODPref = findPreference(AOD_SCHEDULE_KEY);
         updateAlwaysOnSummary();
@@ -125,9 +143,40 @@ public class LockScreen extends SettingsPreferenceFragment implements
         }
     }
 
+    private String getLockScreenCustomClockFace() {
+        mContext = getActivity();
+        String value = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                CUSTOM_CLOCK_FACE, USER_CURRENT);
+
+        if (value == null || value.isEmpty()) value = DEFAULT_CLOCK;
+
+        try {
+            JSONObject json = new JSONObject(value);
+            return json.getString("clock");
+        } catch (JSONException ex) {
+        }
+        return value;
+    }
+
+    private void setLockScreenCustomClockFace(String value) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("clock", value);
+            Settings.Secure.putStringForUser(mContext.getContentResolver(), CUSTOM_CLOCK_FACE,
+                    json.toString(), USER_CURRENT);
+        } catch (JSONException ex) {
+        }
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mLockClockStyles) {
+            setLockScreenCustomClockFace((String) newValue);
+            int index = mLockClockStyles.findIndexOfValue((String) newValue);
+            mLockClockStyles.setSummary(mLockClockStyles.getEntries()[index]);
+            return true;
+        }
         return false;
     }
 

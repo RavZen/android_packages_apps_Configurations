@@ -1333,4 +1333,9 @@
     <string name="lockscreen_show_camera_shortcut_summary">Show camera shortcut on lockscreen (right)</string>
     <string name="lockscreen_show_phone_shortcut">Phone</string>
     <string name="lockscreen_show_phone_shortcut_summary">Show phone shortcut instead of voice shortcut (left)</string>
+
+    <!-- Lockscreen Clocks -->
+    <string name="lock_screen_custom_clock_face_default">Default</string>
+    <string name="lock_screen_custom_clock_face_sfunny">Sfuny</string>
+    <string name="lock_screen_custom_clock_face_oos">OOS</string>
 </resources>
