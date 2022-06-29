@@ -149,7 +149,7 @@
             android:key="combined_status_bar_signal_icons"
             android:title="@string/combined_status_bar_signal_icons"
             android:summary="@string/combined_status_bar_signal_icons_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <!-- Wi-Fi Standard icon -->
         <com.evolution.settings.preference.SecureSettingSwitchPreference
