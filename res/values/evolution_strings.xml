@@ -1336,4 +1336,8 @@
     <string name="lock_screen_custom_clock_face_oos">OOS</string>
     
     <string name="lockscreen_shortcuts_dialog_message">SystemUI restart required for changing lockscreen shortcuts.</string>
+
+    <!-- Disable music track title in QS tile -->
+    <string name="qs_music_tile_track_optional_title">Music tile track title</string>
+    <string name="qs_music_tile_track_optional_summary">Show the music track title as the QS tile title</string>
 </resources>
