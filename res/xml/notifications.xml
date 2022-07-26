@@ -81,7 +81,7 @@
             android:key="reticker_status"
             android:title="@string/reticker_title"
             android:summary="@string/reticker_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <com.derp.support.preferences.SystemSettingSwitchPreference
             android:dependency="reticker_status"
