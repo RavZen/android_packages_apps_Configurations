@@ -16,7 +16,8 @@
  -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    
+    <string name="derpspace_title">Konfigurationen</string>
+
     <!-- General app strings -->
     <string name="add">Hinzufügen</string>
     <string name="advanced">Benutzerdefiniert</string>
