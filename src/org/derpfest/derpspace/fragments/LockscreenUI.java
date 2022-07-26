@@ -66,6 +66,13 @@ import com.derp.support.preferences.CustomSystemSeekBarPreference;
 import com.derp.support.colorpicker.ColorPickerPreference;
 import com.derp.support.preferences.SystemSettingListPreference;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import static android.os.UserHandle.USER_SYSTEM;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import static android.os.UserHandle.USER_CURRENT;
+
 @SearchIndexable
 public class LockscreenUI extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -77,6 +84,8 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
     private static final String AMBIENT_ICONS_SIZE = "ambient_icons_size";
     private static final String AMBIENT_ICONS_COLOR = "ambient_icons_color";
     private static final String LOCKSCREEN_BATTERY_INFO_TEMP_UNIT = "lockscreen_charge_temp_unit";
+    private static final String CUSTOM_CLOCK_FACE = Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE;
+    private static final String DEFAULT_CLOCK = "com.android.keyguard.clock.DefaultClockController";
 
     private FingerprintManager mFingerprintManager;
     private SystemSettingSwitchPreference mFingerprintSuccessVib;
@@ -87,6 +96,9 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
     private CustomSystemSeekBarPreference mAmbientIconsSize;
     private ColorPickerPreference mAmbientIconsColor;
     private SystemSettingListPreference mBatteryTempUnit;
+
+    private Context mContext;
+    private ListPreference mLockClockStyles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -161,6 +173,38 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
         mAmbientIconsColor.setNewPreviewColor(intColor);
         mAmbientIconsColor.setSummary(hexColor);
         mAmbientIconsColor.setOnPreferenceChangeListener(this);
+
+        mLockClockStyles = (ListPreference) findPreference(CUSTOM_CLOCK_FACE);
+        String mLockClockStylesValue = getLockScreenCustomClockFace();
+        mLockClockStyles.setValue(mLockClockStylesValue);
+        mLockClockStyles.setSummary(mLockClockStyles.getEntry());
+        mLockClockStyles.setOnPreferenceChangeListener(this);
+
+    }
+
+    private String getLockScreenCustomClockFace() {
+        mContext = getActivity();
+        String value = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                CUSTOM_CLOCK_FACE, USER_CURRENT);
+
+        if (value == null || value.isEmpty()) value = DEFAULT_CLOCK;
+
+        try {
+            JSONObject json = new JSONObject(value);
+            return json.getString("clock");
+        } catch (JSONException ex) {
+        }
+        return value;
+    }
+
+    private void setLockScreenCustomClockFace(String value) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("clock", value);
+            Settings.Secure.putStringForUser(mContext.getContentResolver(), CUSTOM_CLOCK_FACE,
+                    json.toString(), USER_CURRENT);
+        } catch (JSONException ex) {
+        }
     }
 
     @Override
@@ -221,6 +265,11 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.AMBIENT_ICONS_COLOR, intHex);
+            return true;
+        } else if (preference == mLockClockStyles) {
+            setLockScreenCustomClockFace((String) objValue);
+            int index = mLockClockStyles.findIndexOfValue((String) objValue);
+            mLockClockStyles.setSummary(mLockClockStyles.getEntries()[index]);
             return true;
         }
         return false;

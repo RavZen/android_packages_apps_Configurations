@@ -17,7 +17,7 @@
  -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    
+
     <!-- General app strings -->
     <string name="derpspace_title" translatable="false">DerpSpace</string>
     <string name="add">Add</string>
@@ -160,7 +160,7 @@
     <string name="dialog_delete_title">Delete</string>
     <string name="dialog_delete_message">Remove selected item?</string>
 
-	<!-- Heads up timeout -->
+    <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Time out</string>
     <string name="heads_up_time_out_summary">Peeking notifications will show for <xliff:g id="number">%d</xliff:g> seconds</string>
     <string name="heads_up_time_out_2sec">2 seconds</string>
@@ -170,7 +170,7 @@
     <string name="heads_up_time_out_8sec">8 seconds</string>
     <string name="heads_up_time_out_10sec">10 seconds</string>
 
-	<!-- Heads up snooze -->
+    <!-- Heads up snooze -->
     <string name="heads_up_snooze_title">Snooze timer</string>
     <string name="heads_up_snooze_summary_one_minute">Swiping up on peeking notifications will snooze heads up from that application for 1 minute</string>
     <string name="heads_up_snooze_summary">Swiping up on peeking notifications will snooze heads up from that application for <xliff:g id="number">%d</xliff:g> minutes</string>
@@ -232,7 +232,7 @@
     <string name="qs_edit_title">Edit Icon</string>
     <string name="qs_edit_summary">Enable the tile edit icon in the footer</string>
 
-	    <!-- DerpFest logo -->
+    <!-- DerpFest logo -->
     <string name="derp_logo_title">DerpFest logo</string>
     <string name="derp_logo_summary">Let everyone know that you\'re using DerpFest when they see your screen</string>
 
@@ -356,8 +356,8 @@
     <string name="charging_animation_title">Charging animation</string>
     <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
 
-   <!-- Battery Settings -->
-    <string name="battery_settings_title">Battery Settings</string>   
+    <!-- Battery Settings -->
+    <string name="battery_settings_title">Battery Settings</string>
 
     <!-- Battery Styles -->
     <string name="battery_style_category_title">Battery styles</string>
@@ -531,7 +531,7 @@
     <string name="keyguard_show_battery_always_title">Always show battery bar</string>
     <string name="keyguard_show_battery_always_summary">Always show a battery bar on the ambient display</string>
 
-    <!-- Ambient display battery percentage --> 
+    <!-- Ambient display battery percentage -->
     <string name="ambient_battery_percent_title">Battery level on bottom</string>
     <string name="ambient_battery_percent_summary">Enable to show battery percent while dozing</string>
 
@@ -739,4 +739,11 @@
     <string name="show_wifi_standard_icon_title">Show Wi-Fi type icon</string>
     <string name="show_wifi_standard_icon_summary">Show Wi-Fi type in Wi-Fi signal indicator</string>
 
+    <!-- Lockscreen Clocks -->
+        <string name="lock_screen_custom_clock_face_category">Lock screen Clock</string>
+    <string name="lock_screen_custom_clock_face_title">Lock screen clock style</string>
+    <string name="lock_screen_custom_clock_face_default">Default</string>
+    <string name="lock_screen_custom_clock_face_sfunny">Sfuny</string>
+    <string name="lock_screen_custom_clock_face_oos">OOS</string>
+    <string name="lock_screen_custom_clock_face_clockertino">Clockertino</string>
 </resources>
