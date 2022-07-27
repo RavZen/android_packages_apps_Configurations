@@ -68,7 +68,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String MEDIA_ARTWORK = "media_artwork_force_expand";
-    private static final String QS_FOOTER_TEXT_STRING = "qs_footer_text_string";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
@@ -78,7 +77,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     private ListPreference mBrightnessSliderPosition;
     private ListPreference mShowBrightnessSlider;
     private SystemSettingSwitchPreference mArtwork;
-    private SystemSettingEditTextPreference mFooterString;
     private SwitchPreference mShowAutoBrightness;
 
     @Override
@@ -122,18 +120,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
             prefSet.removePreference(mShowAutoBrightness);
         }
 
-        mFooterString = (SystemSettingEditTextPreference) findPreference(QS_FOOTER_TEXT_STRING);
-        mFooterString.setOnPreferenceChangeListener(this);
-        String footerString = Settings.System.getString(resolver,
-                QS_FOOTER_TEXT_STRING);
-        if (footerString != null && !footerString.isEmpty())
-            mFooterString.setText(footerString);
-        else {
-            mFooterString.setText("#StayDerped");
-            Settings.System.putString(resolver,
-                    Settings.System.QS_FOOTER_TEXT_STRING, "#StayDerped");
-        }
-
         mArtwork = (SystemSettingSwitchPreference) findPreference(MEDIA_ARTWORK);
         mArtwork.setChecked((Settings.System.getInt(resolver,
                 Settings.System.MEDIA_ARTWORK_FORCE_EXPAND, 0) == 1));
@@ -162,17 +148,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
             Settings.System.putInt(resolver,
                     Settings.System.MEDIA_ARTWORK_FORCE_EXPAND, value ? 0 : 1);
             derpUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        } else if (preference == mFooterString) {
-            String value = (String) newValue;
-            if (value != null && !value.isEmpty())
-                Settings.System.putString(resolver,
-                        Settings.System.QS_FOOTER_TEXT_STRING, value);
-            else {
-                mFooterString.setText("#StayDerped");
-                Settings.System.putString(resolver,
-                        Settings.System.QS_FOOTER_TEXT_STRING, "#StayDerped");
-            }
             return true;
         } else if (preference == mShowBrightnessSlider) {
             int value = Integer.parseInt((String) newValue);
