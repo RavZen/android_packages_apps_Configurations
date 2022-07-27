@@ -128,12 +128,12 @@
             settings:interval="1"
             android:defaultValue="80" />
 
-        <com.derp.support.colorpicker.ColorPickerPreference
+     <com.derp.support.colorpicker.ColorPickerPreference
             android:key="ambient_icons_color"
             android:title="@string/ambient_icons_color_title"
             android:dependency="ambient_icons_lockscreen"
             android:defaultValue="0xFFFFFFFF" />
-
+            
     </PreferenceCategory>
 
     <PreferenceCategory

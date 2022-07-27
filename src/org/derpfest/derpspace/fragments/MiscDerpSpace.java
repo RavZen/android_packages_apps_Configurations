@@ -52,7 +52,6 @@ import com.derp.support.preferences.SecureSettingSwitchPreference;
 
 public class MiscDerpSpace extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
     private static final String COMBINED_STATUSBAR_ICONS = "show_combined_status_bar_signal_icons";
     private static final String CONFIG_RESOURCE_NAME = "flag_combined_status_bar_signal_icons";
     private static final String SYSTEMUI_PACKAGE = "com.android.systemui";
@@ -68,11 +67,6 @@ public class MiscDerpSpace extends SettingsPreferenceFragment implements OnPrefe
 
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
-
-	    mShowDerpLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
-        mShowDerpLogo.setChecked((Settings.System.getInt(resolver,
-             Settings.System.STATUS_BAR_LOGO, 0) == 1));
-        mShowDerpLogo.setOnPreferenceChangeListener(this);
 
         mCombinedIcons = (SecureSettingSwitchPreference)
                 findPreference(COMBINED_STATUSBAR_ICONS);
@@ -109,12 +103,7 @@ public class MiscDerpSpace extends SettingsPreferenceFragment implements OnPrefe
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mShowDerpLogo) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
-            return true;
-        } else if (preference == mCombinedIcons) {
+        if (preference == mCombinedIcons) {
             boolean enabled = (boolean) objValue;
             Settings.Secure.putInt(resolver,
                     COMBINED_STATUSBAR_ICONS, enabled ? 1 : 0);
