@@ -82,7 +82,6 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
     private static final String ENABLE_UDFPS_START_HAPTIC_FEEDBACK = "enable_udfps_start_haptic_feedback";
     private static final String AMBIENT_ICONS_LOCKSCREEN = "ambient_icons_lockscreen";
     private static final String AMBIENT_ICONS_SIZE = "ambient_icons_size";
-    private static final String AMBIENT_ICONS_COLOR = "ambient_icons_color";
     private static final String LOCKSCREEN_BATTERY_INFO_TEMP_UNIT = "lockscreen_charge_temp_unit";
     private static final String CUSTOM_CLOCK_FACE = Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE;
     private static final String DEFAULT_CLOCK = "com.android.keyguard.clock.DefaultClockController";
@@ -165,14 +164,6 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
                 Settings.System.AMBIENT_ICONS_SIZE, 80);
         mAmbientIconsSize.setValue(intSize / 1);
         mAmbientIconsSize.setOnPreferenceChangeListener(this);
-
-        mAmbientIconsColor = (ColorPickerPreference) findPreference(AMBIENT_ICONS_COLOR);
-        int intColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.AMBIENT_ICONS_COLOR, Color.TRANSPARENT);
-        String hexColor = String.format("#%08x", (0xffffff & intColor));
-        mAmbientIconsColor.setNewPreviewColor(intColor);
-        mAmbientIconsColor.setSummary(hexColor);
-        mAmbientIconsColor.setOnPreferenceChangeListener(this);
 
         mLockClockStyles = (ListPreference) findPreference(CUSTOM_CLOCK_FACE);
         String mLockClockStylesValue = getLockScreenCustomClockFace();
@@ -257,14 +248,6 @@ public class LockscreenUI extends SettingsPreferenceFragment implements OnPrefer
             int width = ((Integer)objValue).intValue();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.AMBIENT_ICONS_SIZE, width);
-            return true;
-        } else if (preference == mAmbientIconsColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer
-                .parseInt(String.valueOf(objValue)));
-            mAmbientIconsColor.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.AMBIENT_ICONS_COLOR, intHex);
             return true;
         } else if (preference == mLockClockStyles) {
             setLockScreenCustomClockFace((String) objValue);

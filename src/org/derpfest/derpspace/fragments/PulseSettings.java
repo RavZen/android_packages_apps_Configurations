@@ -44,7 +44,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private static final String NAVBAR_PULSE_ENABLED_KEY = "navbar_pulse_enabled";
     private static final String LOCKSCREEN_PULSE_ENABLED_KEY = "lockscreen_pulse_enabled";
-    private static final String QS_PULSE_ENABLED_KEY = "qs_pulse_enabled";
     private static final String AMBIENT_PULSE_ENABLED_KEY = "ambient_pulse_enabled";
     private static final String PULSE_SMOOTHING_KEY = "pulse_smoothing_enabled";
     private static final String PULSE_COLOR_MODE_KEY = "pulse_color_mode";
@@ -102,12 +101,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mLockscreenPulse.setChecked(lockscreenPulse);
         mLockscreenPulse.setOnPreferenceChangeListener(this);
 
-        mQsPulse = (SwitchPreference) findPreference(QS_PULSE_ENABLED_KEY);
-        boolean qsPulse = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.QS_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        mQsPulse.setChecked(qsPulse);
-        mQsPulse.setOnPreferenceChangeListener(this);
-
         mAmbientPulse = (SwitchPreference) findPreference(AMBIENT_PULSE_ENABLED_KEY);
         boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
@@ -156,12 +149,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
             updateAllPrefs();
             return true;
-        } else if (preference == mQsPulse) {
-            boolean val = (Boolean) newValue;
-            Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.QS_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
-            updateAllPrefs();
-            return true;
         } else if (preference == mAmbientPulse) {
             boolean val = (Boolean) newValue;
             Settings.Secure.putIntForUser(resolver,
@@ -185,9 +172,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 Settings.Secure.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         boolean lockscreenPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-
-        boolean qsPulse = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.QS_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
         boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
