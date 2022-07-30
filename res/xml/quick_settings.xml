@@ -37,12 +37,6 @@
             android:entryValues="@array/quick_pulldown_values"
             android:defaultValue="0" />
 
-        <com.derp.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_show_battery_estimate"
-            android:title="@string/battery_estimate_title"
-            android:summary="@string/battery_estimate_summary"
-            android:defaultValue="true"/>
-
         <com.derp.support.preferences.SecureSettingSwitchPreference
             android:key="disable_secure_tiles_on_lockscreen"
             android:title="@string/use_tiles_on_secure_keyguard_title"
@@ -56,6 +50,42 @@
             android:defaultValue="false" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_header_category_battery">
+
+        <!-- QS date -->
+        <com.derp.support.preferences.SystemSettingSwitchPreference
+            android:key="show_qs_date"
+            android:title="@string/qs_date_title"
+            android:summary="@string/qs_date_summary"
+            android:defaultValue="true" />
+
+        <!-- Battery styles -->
+        <com.derp.support.preferences.SystemSettingListPreference
+            android:key="qs_battery_style"
+            android:title="@string/status_bar_battery_style_title"
+            android:entries="@array/qs_battery_style_entries"
+            android:entryValues="@array/qs_battery_style_values"
+            android:defaultValue="-1" />
+
+        <!-- Battery location -->
+        <com.derp.support.preferences.SystemSettingListPreference
+            android:key="qs_show_battery_percent"
+            android:title="@string/status_bar_battery_percent_title"
+            android:entries="@array/status_bar_battery_percent_entries"
+            android:entryValues="@array/status_bar_battery_percent_values"
+            android:defaultValue="2" />
+
+        <!-- Battery estimate -->
+        <com.derp.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_battery_estimate"
+            android:title="@string/battery_estimate_title"
+            android:summary="@string/battery_estimate_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
 
      <PreferenceCategory
         android:key="quick_settings_footer_category"
