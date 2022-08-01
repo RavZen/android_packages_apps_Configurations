@@ -69,6 +69,31 @@
 
     </PreferenceCategory>
 
+
+    <PreferenceCategory
+        android:key="ambient_battery_category"
+        android:title="@string/ambient_battery_title">
+
+        <com.evolution.settings.preference.SystemSettingSwitchPreference
+            android:key="ambient_battery_percent" 
+            android:title="@string/ambient_battery_percent_title" 
+            android:summary="@string/ambient_battery_percent_summary" 
+            android:defaultValue="true" />
+
+        <com.evolution.settings.preference.SystemSettingSwitchPreference
+            android:key="sysui_keyguard_show_battery_bar"
+            android:title="@string/keyguard_show_battery_title"
+            android:summary="@string/keyguard_show_battery_summary"
+            android:defaultValue="false" />
+
+        <com.evolution.settings.preference.SystemSettingSwitchPreference
+            android:key="sysui_keyguard_show_battery_bar_always"
+            android:title="@string/keyguard_show_battery_always_title"
+            android:summary="@string/keyguard_show_battery_always_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="lockscreen_media_art_options"
         android:title="@string/lockscreen_media_art_options_title">
