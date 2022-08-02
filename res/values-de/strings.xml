@@ -376,8 +376,8 @@
     <string name="status_bar_battery_percentage_text_next">Neben dem Symbol</string>
 
     <!-- Call strength icons in QS -->
-    <string name="show_qs_call_strength_icon_title">Symbole für Anrufstärke anzeigen</string>
-    <string name="show_qs_call_strength_icon_summary">Symbole für die Anrufstärke im Schnelleinstellungsfeld anzeigen, wenn verfügbar</string>
+    <string name="show_qs_call_strength_icon_title">Symbole für Anrufstärke verstecken</string>
+    <string name="show_qs_call_strength_icon_summary">Symbole für die Anrufstärke im Schnelleinstellungsfeld verstecken, wenn verfügbar</string>
 
     <!-- Monet Engine -->
     <string name="monet_category">Monet</string>
