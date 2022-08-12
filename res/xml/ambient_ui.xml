@@ -31,24 +31,11 @@
         android:key="ambient_battery_category"
         android:title="@string/ambient_battery_title">
 
-        <com.derp.support.preferences.SystemSettingSwitchPreference
+        <com.statix.support.preferences.SystemSettingSwitchPreference
             android:key="ambient_battery_percent" 
             android:title="@string/ambient_battery_percent_title" 
             android:summary="@string/ambient_battery_percent_summary" 
             android:defaultValue="true" />
-
-        <com.derp.support.preferences.SystemSettingSwitchPreference
-            android:key="sysui_keyguard_show_battery_bar"
-            android:title="@string/keyguard_show_battery_title"
-            android:summary="@string/keyguard_show_battery_summary"
-            android:defaultValue="false" />
-
-        <com.derp.support.preferences.SystemSettingSwitchPreference
-            android:key="sysui_keyguard_show_battery_bar_always"
-            android:title="@string/keyguard_show_battery_always_title"
-            android:summary="@string/keyguard_show_battery_always_summary"
-            android:dependency="sysui_keyguard_show_battery_bar"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 
@@ -56,7 +43,7 @@
         android:key="ambient_pulse_category"
         android:title="@string/ambient_pulse_title">
 
-        <com.derp.support.preferences.SecureSettingSwitchPreference
+        <com.statix.support.preferences.SecureSettingSwitchPreference
             android:key="ambient_wake_gestures"
             android:title="@string/ambient_wake_gestures_title"
             android:summary="@string/ambient_wake_gestures_summary"

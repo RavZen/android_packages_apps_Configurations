@@ -47,12 +47,6 @@ public class System extends SettingsPreferenceFragment implements
 
         ContentResolver resolver = getActivity().getContentResolver();
 
-        Preference mBattery = findPreference(PREF_BATTERY);
-        if (mBattery != null
-                && !getResources().getBoolean(
-                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-            getPreferenceScreen().removePreference(mBattery);
-        }
     }
 
     public static void reset(Context mContext) {
@@ -62,7 +56,7 @@ public class System extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.DERP;
+        return MetricsProto.MetricsEvent.STATIX;
     }
 
     @Override

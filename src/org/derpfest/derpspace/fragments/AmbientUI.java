@@ -103,7 +103,7 @@ public class AmbientUI extends SettingsPreferenceFragment implements OnPreferenc
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.DERP;
+        return MetricsEvent.STATIX;
     }
 
     @Override

@@ -16,7 +16,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/status_bar_clock_title">
 
-        <SwitchPreference
+        <!-- <SwitchPreference
             android:key="statusbar_clock"
             android:title="@string/status_bar_show_clock_title"
             android:defaultValue="true" />
@@ -70,6 +70,6 @@
             android:title="@string/clock_date_position"
             android:entries="@array/clock_date_position_entries"
             android:entryValues="@array/clock_date_position_values"
-            android:dependency="statusbar_clock" />
+            android:dependency="statusbar_clock" /> -->
 
 </PreferenceScreen>

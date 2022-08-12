@@ -19,31 +19,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-     <com.derp.support.preferences.CardviewPreference
-        android:key="battery"
-        android:fragment="org.derpfest.derpspace.fragments.Battery"
-        android:icon="@drawable/ic_battery"
-        android:title="@string/battery_title" />
-
-     <com.derp.support.preferences.CardviewPreference
-        android:key="customisation"
-        android:fragment="org.derpfest.derpspace.fragments.Customisation"
-        android:icon="@drawable/ic_customisation"
-        android:title="@string/customisation_title" />
-
-    <com.derp.support.preferences.CardviewPreference
+    <com.statix.support.preferences.CardviewPreference
         android:key="pulse_settings"
         android:fragment="org.derpfest.derpspace.fragments.PulseSettings"
         android:icon="@drawable/ic_pulse"
         android:title="@string/pulse_settings" />
 
-     <com.derp.support.preferences.CardviewPreference
-        android:key="navbar_settings"
-        android:fragment="org.derpfest.derpspace.fragments.NavbarSettings"
-        android:icon="@drawable/ic_navigation"
-        android:title="@string/navigationbar_settings_title" />
-
-     <com.derp.support.preferences.CardviewPreference
+     <com.statix.support.preferences.CardviewPreference
         android:key="general_tweaks"
         android:fragment="org.derpfest.derpspace.fragments.GeneralTweaks"
         android:icon="@drawable/ic_general_tweaks"

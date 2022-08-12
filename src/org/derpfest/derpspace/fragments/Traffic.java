@@ -46,8 +46,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.Utils;
 
-import com.derp.support.preferences.SystemSettingSeekBarPreference;
-import com.derp.support.preferences.SystemSettingSwitchPreference;
+import com.statix.support.preferences.SystemSettingSeekBarPreference;
+import com.statix.support.preferences.SystemSettingSwitchPreference;
 
 public class Traffic extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -64,7 +64,7 @@ public class Traffic extends SettingsPreferenceFragment implements OnPreferenceC
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.DERP;
+        return MetricsEvent.STATIX;
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

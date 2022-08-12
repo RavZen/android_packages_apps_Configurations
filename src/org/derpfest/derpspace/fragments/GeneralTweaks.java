@@ -38,7 +38,6 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class GeneralTweaks extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
 
-    private static final String ALERT_SLIDER_PREF = "alert_slider_notifications";
     private static final String KEY_SPOOF = "use_photos_spoof";
     private static final String SYS_SPOOF = "persist.sys.pixelprops.gphotos";
 
@@ -55,12 +54,6 @@ public class GeneralTweaks extends SettingsPreferenceFragment implements OnPrefe
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
 
-        mAlertSlider = (Preference) findPreference(ALERT_SLIDER_PREF);
-        boolean mAlertSliderAvailable = res.getBoolean(
-                com.android.internal.R.bool.config_hasAlertSlider);
-        if (!mAlertSliderAvailable)
-            prefScreen.removePreference(mAlertSlider);
-
         mSpoof = (SwitchPreference) findPreference(KEY_SPOOF);
         mSpoof.setChecked(SystemProperties.getBoolean(SYS_SPOOF, true));
         mSpoof.setOnPreferenceChangeListener(this);
@@ -68,7 +61,7 @@ public class GeneralTweaks extends SettingsPreferenceFragment implements OnPrefe
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.DERP;
+        return MetricsEvent.STATIX;
     }
 
     @Override

@@ -16,13 +16,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.derp.support.preferences.CardviewPreference
+    <com.statix.support.preferences.CardviewPreference
         android:key="notifications"
         android:fragment="org.derpfest.derpspace.fragments.Notifications"
         android:icon="@drawable/ic_notification"
         android:title="@string/notifications_title" />
 
-    <com.derp.support.preferences.CardviewPreference
+    <com.statix.support.preferences.CardviewPreference
         android:key="quick_settings"
         android:fragment="org.derpfest.derpspace.fragments.QuickSettings"
         android:icon="@drawable/ic_quicksettings"

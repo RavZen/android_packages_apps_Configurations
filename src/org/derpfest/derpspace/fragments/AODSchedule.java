@@ -39,7 +39,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.derp.support.preferences.SecureSettingListPreference;
+import com.statix.support.preferences.SecureSettingListPreference;
 
 import java.time.format.DateTimeFormatter;
 import java.time.LocalTime;
@@ -178,7 +178,7 @@ public class AODSchedule extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.DERP;
+        return MetricsProto.MetricsEvent.STATIX;
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

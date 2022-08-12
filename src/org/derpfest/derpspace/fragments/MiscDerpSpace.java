@@ -45,10 +45,10 @@ import android.view.View;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.derp.derpUtils;
+import com.android.internal.util.custom.CustomUtils;
 import com.android.settings.Utils;
 
-import com.derp.support.preferences.SecureSettingSwitchPreference;
+import com.statix.support.preferences.SecureSettingSwitchPreference;
 
 public class MiscDerpSpace extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -56,7 +56,6 @@ public class MiscDerpSpace extends SettingsPreferenceFragment implements OnPrefe
     private static final String CONFIG_RESOURCE_NAME = "flag_combined_status_bar_signal_icons";
     private static final String SYSTEMUI_PACKAGE = "com.android.systemui";
 
-    private SwitchPreference mShowDerpLogo;
     private SecureSettingSwitchPreference mCombinedIcons;
 
     @Override
@@ -92,7 +91,7 @@ public class MiscDerpSpace extends SettingsPreferenceFragment implements OnPrefe
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.DERP;
+        return MetricsEvent.STATIX;
     }
 
     @Override
@@ -107,7 +106,7 @@ public class MiscDerpSpace extends SettingsPreferenceFragment implements OnPrefe
             boolean enabled = (boolean) objValue;
             Settings.Secure.putInt(resolver,
                     COMBINED_STATUSBAR_ICONS, enabled ? 1 : 0);
-            derpUtils.showSystemUiRestartDialog(getActivity());
+            CustomUtils.showSystemUiRestartDialog(getActivity());
             return true;
         }
         return false;
