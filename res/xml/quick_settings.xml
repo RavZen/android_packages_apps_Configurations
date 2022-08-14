@@ -73,7 +73,7 @@
 
     </PreferenceCategory>
 
-    <!-- <PreferenceCategory
+    <PreferenceCategory
         android:key="quick_settings_brighness_category"
         android:title="@string/qs_brightness_slider_category">
 
@@ -97,7 +97,7 @@
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true" />
 
-    </PreferenceCategory> -->
+    </PreferenceCategory>
 
 
     <PreferenceCategory

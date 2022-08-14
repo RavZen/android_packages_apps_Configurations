@@ -86,35 +86,35 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         final PreferenceScreen prefSet = getPreferenceScreen();
 
 
-        // mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
-        // mShowBrightnessSlider.setOnPreferenceChangeListener(this);
-        // boolean showSlider = Settings.Secure.getIntForUser(resolver,
-        //         Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
+        mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
+        mShowBrightnessSlider.setOnPreferenceChangeListener(this);
+        boolean showSlider = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
 
-        // mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
-        // mBrightnessSliderPosition.setEnabled(showSlider);
+        mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
+        mBrightnessSliderPosition.setEnabled(showSlider);
 
-        // mShowAutoBrightness = findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
-        // boolean automaticAvailable = mContext.getResources().getBoolean(
-        //         com.android.internal.R.bool.config_automatic_brightness_available);
-        // if (automaticAvailable) {
-        //     mShowAutoBrightness.setEnabled(showSlider);
-        // } else {
-        //     prefSet.removePreference(mShowAutoBrightness);
-        // }
+        mShowAutoBrightness = findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
+        boolean automaticAvailable = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available);
+        if (automaticAvailable) {
+            mShowAutoBrightness.setEnabled(showSlider);
+        } else {
+            prefSet.removePreference(mShowAutoBrightness);
+        }
 
     }
 
      @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        // if (preference == mShowBrightnessSlider) {
-        //     int value = Integer.parseInt((String) newValue);
-        //     mBrightnessSliderPosition.setEnabled(value > 0);
-        //     if (mShowAutoBrightness != null)
-        //         mShowAutoBrightness.setEnabled(value > 0);
-        //     return true;
-        // }
+        if (preference == mShowBrightnessSlider) {
+            int value = Integer.parseInt((String) newValue);
+            mBrightnessSliderPosition.setEnabled(value > 0);
+            if (mShowAutoBrightness != null)
+                mShowAutoBrightness.setEnabled(value > 0);
+            return true;
+        }
         return false;
     }
 
