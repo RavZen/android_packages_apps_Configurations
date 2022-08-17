@@ -57,6 +57,7 @@ import org.derpfest.derpspace.categories.Lockscreen;
 import org.derpfest.derpspace.categories.NotificationsPanel;
 import org.derpfest.derpspace.categories.StatusBar;
 import org.derpfest.derpspace.categories.System;
+import com.android.internal.util.custom.CustomUtils;
 
 import org.derpfest.derpspace.navigation.BubbleNavigationChangeListener;
 import org.derpfest.derpspace.navigation.BubbleNavigationConstraintView;
@@ -196,10 +197,7 @@ public class DerpSpace extends SettingsPreferenceFragment implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_HELP:
-                showDialogInner(MENU_HELP);
-                Toast.makeText(getActivity(),
-                (R.string.derpspace_dialog_toast),
-                Toast.LENGTH_LONG).show();
+                CustomUtils.showSystemUiRestartDialog(getActivity());
                 return true;
             default:
                 return false;
